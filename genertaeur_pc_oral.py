@@ -117,7 +117,7 @@ for level in levels:
     compl_items = str()
     
     for i in range(nb_compl_100):
-        c = random.randint(0, 99)
+        c = random.randint(1, 99)
         compl_100 = 100 - c
         compl_items += "\\item $ "
         compl_items += "100 - ....... =" + str(compl_100) +\
@@ -125,7 +125,7 @@ for level in levels:
         compl_items += " $\n"
     
     for i in range(nb_compl_50):
-        c = random.randint(0, 49)
+        c = random.randint(1, 49)
         compl_50 = 50 - c
         compl_items += "\\item $ "
         compl_items += "50 - ....... =" + str(compl_50) + \
