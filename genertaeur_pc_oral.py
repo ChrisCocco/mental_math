@@ -42,7 +42,7 @@ for level in levels:
         "Date: ...........................................\n\n" +\
         "Note:\n\\end{spacing}\\begin{enumerate}\n\n"
     
-    items = str()
+    items = []
     
     if level == "7P":
         nb_mult_easy = 3
@@ -60,33 +60,59 @@ for level in levels:
         nb_compl_100 = 2
         nb_compl_50  = 2
         nb_compl_1000= 2
+    
+    count = 0   
+    while count < nb_mult_easy:
+        item = str()
+        item += "\\item $ "
+        item += multip(0, 2, 0, 13) #easy
+        item += " $\n"
+        items.append(item)
+        if not item in items[:-1]:
+            count += 1
+        else:
+            del items[-1]
+    
+    count = 0
+    while count < nb_mult_med:
+        item = str()
+        item += "\\item $ "
+        item += multip(3, 5, 3, 13) #medium
+        item += " $\n"
+        items.append(item)
+        if not item in items[:-1]:
+            count += 1
+        else:
+            del items[-1]
+    
+    count = 0
+    while count < nb_mult_diff:
+        item = str()
+        item += "\\item $ "
+        item += multip(6, 9, 4, 12) #difficult
+        item += " $\n"
+        items.append(item)
+        if not item in items[:-1]:
+            count += 1
+        else:
+            del items[-1]
+    
+    count = 0
+    while count < nb_mult_hard:
+        item = str()
+        item += "\\item $ "
+        item += multip(10, 13, 6, 13) #hard
+        item += " $\n"
+        items.append(item)
+        if not item in items[:-1]:
+            count += 1
+        else:
+            del items[-1]
         
-    for i in range(nb_mult_easy):
-        items += "\\item $ "
-        items += multip(0, 2, 0, 13) #easy
-        items += " $\n"
-    
-    for i in range(nb_mult_med):
-        items += "\\item $ "
-        items += multip(3, 5, 3, 13) #medium
-        items += " $\n"
-    
-    for i in range(nb_mult_diff):
-        items += "\\item $ "
-        items += multip(6, 9, 4, 12) #difficult
-        items += " $\n"
-    
-    for i in range(nb_mult_hard):
-        items += "\\item $ "
-        items += multip(10, 13, 6, 13) #hard
-        items += " $\n"
-        
-    lines = items.splitlines()
-    random.shuffle(lines)
-    mix_items = "\n".join(lines)
+    random.shuffle(items)
+    mix_items = "".join(items)
     
     printout += mix_items
-    printout += "\n"
     
     compl_items = str()
     
